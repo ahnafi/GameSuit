@@ -1,0 +1,62 @@
+*,html,body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.container {
+    width: 80%;
+    height: 500px;
+    margin: 10% auto;
+    background-color: #f8d941;
+    text-align: center;
+    border-radius: 10px;
+    
+}
+
+.container img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+.computer {
+    background-color: #fd9f9d;
+    padding: 20px;
+}
+.hasil {
+    background-color: #f8d941;
+}
+.player {
+    background-color: #fe7748;
+    padding: 20px;
+}
+.player p , .computer p {
+    margin-bottom: 10px;
+}
+.player li {
+    list-style: none;
+
+    
+}
+.player ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+.gajah, .orang, .semut {
+    transition: .3s;
+    position: relative;
+    top:0;
+    cursor: pointer;
+}
+
+.gajah:hover, .semut:hover, .orang:hover, .active {
+    box-shadow: 0 0 10px 5px lightblue;
+}
+
+.gajah:active, .semut:active, .orang:active {
+    top: 2px;
+}
+
+
+
