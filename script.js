@@ -12,6 +12,25 @@ function gethasil(comp, player) {
   if (player == "semut") return comp == "gajah" ? "MENANG!" : "KALAH!";
 }
 
+const fight = document.getElementById("fight");
+
+//membuat animasi computer memliih gambar
+function putar() {
+  const imgcomputer = document.getElementById("img-computer");
+  const gambar = ["gajah", "semut", "orang"];
+  let i = 0;
+  const waktumulai = new Date().getTime();
+  setInterval(function () {
+    if (new Date().getTime() - waktumulai > 1000) {
+      clearInterval;
+      return;
+    }
+    imgcomputer.setAttribute("src", "img/" + gambar[i++] + ".png");
+    fight.innerHTML  = '';
+    if (i == gambar.length) i = 0;
+  }, 100);
+}
+
 //mempersingkat codingan
 const pilihan = document.querySelectorAll("li img");
 pilihan.forEach(function (i) {
@@ -19,15 +38,18 @@ pilihan.forEach(function (i) {
     const pilihcomp = getcomp();
     const pilihplayer = i.className;
     const hasil = gethasil(pilihcomp, pilihplayer);
-    const imgcomp = document.querySelector(".computer img");
-    imgcomp.setAttribute("src", "img/" + pilihcomp + ".png");
-    const fight = document.getElementById("fight");
-    fight.innerHTML = hasil;
+    //animasi
+    putar();
+    setTimeout(function () {
+      const imgcomp = document.querySelector(".computer img");
+      imgcomp.setAttribute("src", "img/" + pilihcomp + ".png");
+      
+      fight.innerHTML = hasil;
+    }, 1000);
   });
 });
 
 //codingan lama
-
 
 // const pgajah = document.querySelector(".gajah");
 // pgajah.addEventListener("click", function () {
